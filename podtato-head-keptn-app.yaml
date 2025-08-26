@@ -1,0 +1,17 @@
+
+apiVersion: lifecycle.keptn.sh/v1alpha1
+kind: KeptnApp
+metadata:
+  name: podtato-head
+  namespace: podtato-head
+spec:
+  version: "0.1.0"
+  workloads:
+    - name: podtato-head
+      version: "0.1.0"
+  preDeploymentTasks:
+    - argocd-sync
+  postDeploymentTasks:
+    - simple-test
+  postDeploymentEvaluations:
+    - simple-evaluation
