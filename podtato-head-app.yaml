@@ -1,0 +1,19 @@
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: podtato-head
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/ottolote/podtato-head.git
+    targetRevision: HEAD
+    path: delivery-gitops
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: podtato-head
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

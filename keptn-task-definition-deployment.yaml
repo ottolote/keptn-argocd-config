@@ -1,0 +1,16 @@
+
+apiVersion: lifecycle.keptn.sh/v1alpha1
+kind: KeptnTaskDefinition
+metadata:
+  name: argocd-sync
+  namespace: keptn-system
+spec:
+  container:
+    image: alpine/curl
+    command:
+      - /bin/sh
+    args:
+      - -c
+      - |
+        apk add --no-cache bash
+        ./trigger-argocd-sync.sh

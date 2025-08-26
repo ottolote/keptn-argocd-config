@@ -1,0 +1,15 @@
+
+apiVersion: lifecycle.keptn.sh/v1alpha1
+kind: KeptnTaskDefinition
+metadata:
+  name: simple-test
+  namespace: keptn-system
+spec:
+  container:
+    image: alpine/curl
+    command:
+      - /bin/sh
+    args:
+      - -c
+      - |
+        curl -s -f http://podtato-head.podtato-head.svc.cluster.local

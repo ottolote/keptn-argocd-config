@@ -1,0 +1,15 @@
+
+apiVersion: lifecycle.keptn.sh/v1alpha1
+kind: KeptnTaskDefinition
+metadata:
+  name: simple-evaluation
+  namespace: keptn-system
+spec:
+  container:
+    image: alpine
+    command:
+      - /bin/sh
+    args:
+      - -c
+      - |
+        echo "Evaluation successful"
